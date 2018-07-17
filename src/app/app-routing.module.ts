@@ -1,5 +1,5 @@
 import { HomePageComponent } from './core/homepage/homepage.component';
-import { DataloggerpageComponent } from './core/dataloggerpage/dataloggerpage.component';
+import { DataloggerComponent } from './datalogger';
 /**
  * Main Application Routing Module
  */
@@ -10,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
         path: 'datalogger',
-        component: DataloggerpageComponent
+        component: DataloggerComponent
     },
     {
         path: '',

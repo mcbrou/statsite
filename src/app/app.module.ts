@@ -14,7 +14,6 @@ import { HomePageComponent } from './core/homepage/homepage.component';
 import { SiteComponent } from './site';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { DataloggerComponent } from './datalogger';
-import { DataloggerpageComponent } from './core/dataloggerpage/dataloggerpage.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { DataloggerpageComponent } from './core/dataloggerpage/dataloggerpage.co
     HomePageComponent,
     SiteComponent,
     DataloggerComponent,
-    NavbarComponent,
-    DataloggerpageComponent
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

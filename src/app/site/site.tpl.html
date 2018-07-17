@@ -1,6 +1,6 @@
 {{siteId}}
-<span *ngIf="sites$ | async as sites">
-    {{sites.entities[siteId].siteName}}
+<span *ngIf="site$ | async as site">
+    {{site.siteName}}
 </span>
 
 <ko-datalogger *ngFor="let datalogger of dataloggers$" 

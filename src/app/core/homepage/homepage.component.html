@@ -1,42 +1,7 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" routerLink="">CACI</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sites
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a routerLink="/datalogger">Site 1</a></li>
-          <li><a href="#">Site 2</a></li>
-          <li><a href="#">Site 3</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div class="jumbotron text-center">
-  <h1><span class="glyphicons glyphicons-tree-deciduous"></span> {{title}}</h1>
-  <p>Select site location <span class="glyphicons glyphicons-tree-deciduous"></span></p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
       <h3>Site ID list</h3>
-      <ul class="sites" *ngIf="sites$ | async as sites">
-        <li *ngFor="let id of sites.ids">
-          <ko-site [siteId]="id"></ko-site>
+      <ul class="sites">
+        <li *ngFor="let site of sites$ | async">
+          <ko-site [siteId]="site.id"></ko-site>
         </li>
       </ul>
-    </div>
-    <div class="col-sm-4">
-      <h3>Site Name list</h3>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>...</p>
-    </div>
-  </div>
-</div>
+

@@ -17,7 +17,7 @@ import { ElasticSearchService } from '../../services/elasticsearch.service';
 export class HomePageComponent implements AfterViewChecked {
   title: string = 'ENT';
 
-  public sites$;
+  public sites$: Observable<fromSites.Site[]>;
 
   constructor(private titleSvc: Title, 
  
@@ -28,7 +28,7 @@ export class HomePageComponent implements AfterViewChecked {
   ngAfterViewChecked() { 
     this.titleSvc.setTitle(this.title);
 
-    this.sites$ = this.store.pipe(select(fromSites.getSitesSelector));
+    this.sites$ = this.store.pipe(select(fromSites.getSites));
   }
 
 }
