@@ -1,0 +1,7 @@
+/**
+* Controls Angular Material Theme colors for the entire app
+*/
+@import '~@angular/material/_theming.scss';
+
+$primary-hue: mat-palette($mat-light-blue, 700, A100);
+$accent-hue: mat-palette($mat-amber);

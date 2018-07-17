@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import './abstracts/theme.scss';
+
+// Angular Material Theme Setup
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$app-theme: mat-light-theme($primary-hue, $accent-hue);
+@include angular-material-theme($app-theme);
+
+// Vendor overrides, keep above vendor imports
+@import './abstracts/overrides.scss';
+
+// Vendor imports
+@import '~skeleton-scss/scss/skeleton.scss';
+@import '~material-icons/iconfont/material-icons.scss';
+
+// Everyone has a shame file. Put your last resort overrides here
+@import './base/shame.scss';

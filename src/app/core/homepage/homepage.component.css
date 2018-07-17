@@ -1,0 +1,28 @@
+html {
+    min-height: 100vh;
+    background-color: #b1b5bc;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #b1b5bc;
+}
+
+.jumbotron {
+    /* font-style:  */
+    padding-top: 10%;
+    background-color: #4f535b;
+    color: #c4c4c4;
+}
+
+.container {
+    background-color: #b1b5bc;
+}
+
+p {
+    color: red;
+}
+
+h1 {
+    color: #e5e5e5;
+}

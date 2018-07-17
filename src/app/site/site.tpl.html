@@ -1,0 +1,9 @@
+{{siteId}}
+<span *ngIf="sites$ | async as sites">
+    {{sites.entities[siteId].siteName}}
+</span>
+
+<ko-datalogger *ngFor="let datalogger of dataloggers$" 
+    [dataloggerId]="datalogger.id">
+
+</ko-datalogger>
