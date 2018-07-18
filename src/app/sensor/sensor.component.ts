@@ -1,29 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { State } from './sensor.state';
-// import { getSensorById, getSensor } from './sensor.';
+import { getSensorById, getSensors } from './sensor.selectors';
 import { Sensor } from './sensor';
-import { Datalogger } from '../datalogger/datalogger';
 import { Observable } from 'rxjs';
+
+import * as fromSensors from '../sensor';
+import * as fromRoot from '../reducers';
+
 
 @Component({
     selector: 'ko-sensor',
     styleUrls: ['./sensor.scss'],
     templateUrl: './sensor.tpl.html'
 })
-// <ko-site [siteId]=""></ko-site>
-export class SensorComponent implements OnInit {
+export class SensorComponent implements AfterViewChecked {
     @Input() public sensorId: string = ''; 
     
     public sensor$: Observable<Sensor>;
-    public sensors$: Observable<Sensor[]>;
-    dataloggers$: Observable<Datalogger[]>;
+    public sensors$: Observable<fromSensors.Sensor[]>;
 
-    constructor(public store: Store<State>) {
+    constructor(public store: Store<fromRoot.State>) {
     }
 
-    ngOnInit() {
+    ngAfterViewChecked() {
         let id = this.sensorId;
-        // this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
-    }
+        this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
+        this.sensors$ = this.store.pipe(select(fromSensors.getSensors));
+        }
 }

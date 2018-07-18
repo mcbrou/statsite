@@ -1,20 +1,27 @@
-import { HomePageComponent } from './core/homepage/homepage.component';
+// import { HomePageComponent } from './core/homepage/homepage.component';
 import { DataloggerComponent } from './datalogger';
+import { SiteComponent } from './site';
 /**
  * Main Application Routing Module
  */
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SensorComponent } from './sensor';
 
 const routes: Routes = [
+    {
+        path: 'sensors',
+        component: SensorComponent
+    },
     {
         path: 'datalogger',
         component: DataloggerComponent
     },
     {
         path: '',
-        component: HomePageComponent
+        // component: HomePageComponent
+        component: SiteComponent
     }
 ];
 

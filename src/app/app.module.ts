@@ -10,17 +10,17 @@ import { ElasticSearchService } from './services/elasticsearch.service';
 import { AppConfig, APP_CONFIG_VALUES } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './core/homepage/homepage.component';
 import { SiteComponent } from './site';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { DataloggerComponent } from './datalogger';
+import { SensorComponent } from './sensor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     SiteComponent,
     DataloggerComponent,
+    SensorComponent,
     NavbarComponent
   ],
   imports: [

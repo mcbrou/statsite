@@ -1,0 +1,14 @@
+<h3>supposedly sensors</h3>
+<ul class="sensors">
+    <li *ngFor="let sensor of sensors$ | async">
+    <ko-sensor [sensorId]="sensor.id"></ko-sensor>
+    first
+  </li>
+</ul>
+
+{{sensorId}} sensor Id <br>
+<span *ngIf="sensor$ | async as sensor">
+    {{sensor.sensorName}} name <br>
+    <!-- {{sensor.sensorType}} type <br>
+    {{sensor.sensorValue}} value <br> -->
+</span>

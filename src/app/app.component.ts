@@ -8,7 +8,7 @@ import { AppConfig } from './app.config';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Konklusion';
+  title = 'ENT';
 
   constructor(private config: AppConfig, 
     private esService: ElasticSearchService) {

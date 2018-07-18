@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 // import { SITES } from '../mock-sites';
 import * as fromSites from '../site';
 import * as fromDataloggers from '../datalogger';
+import * as fromSensors from '../sensor';
 import * as fromRoot from '../reducers';
 
 @Injectable()
@@ -64,28 +65,20 @@ export class ElasticSearchService {
                         store.dispatch(new fromSites.Add({
                             siteName: packet.site,
                             id: packet.siteUUID
-                        }))
-                        store.dispatch(new fromDataloggers.Add({
-                            datalogger_name: packet.datalogger,
-                            datalogger_id: packet.dataloggerUUID
                         }));
+                        store.dispatch(new fromDataloggers.Add({
+                            dataloggerName: packet.datalogger,
+                            id: packet.dataloggerUUID
+                        }));
+                        store.dispatch(new fromSensors.Add({
+                            sensorName: packet.name,
+                            id: packet.sensorUUID,
+                            // sensorType: packet.type,
+                            // sensorValue: packet.value
+                        }))
                     }
                 }
                 
             });
-    }
-
-    // get data by site
-    getSiteData() {
-        // TODO DOES EVERYT SITE NEED ITS OWN
-    }
-
-    // data logger status getter
-    getDLData() {
-        // TODO IDK WHAT IM DOING AHH
-    }
-    // get data logger sensor status
-    getSensorStatus() {
-        // TODO does every sensor need its own method
     }
 }

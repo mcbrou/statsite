@@ -11,7 +11,7 @@ export const {
 
 export const getSensorsState = createFeatureSelector<State>('sensors');
 export const getSensorsSelector = createSelector(getSensorsState, state => state);
-export const getSiteById = sensorId => {
+export const getSensorById = sensorId => {
   return createSelector(getSensorsState, state => state.entities[sensorId]);
 };
 export const getSensors = createSelector(getSensorsState, selectAll);
