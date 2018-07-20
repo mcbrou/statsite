@@ -51,32 +51,35 @@ export class ElasticSearchService {
         
     }
 
-    public getDocuments(): Observable<fromSites.Site[]> {
+    public getDocuments(): void{
         let store = this.store;
-        return this.esClient.search(
+        this.esClient.search(
             {
             index:  'somesite6',
             size: 10,
             }
             , function(err, data) {
                 if (data.hits && data.hits.hits) {
-                    for (let x = 0; x < data.hits.hits.length-1; x++) {
-                        let packet = data.hits.hits[x]._source;
-                        store.dispatch(new fromSites.Add({
-                            siteName: packet.site,
-                            id: packet.siteUUID
-                        }));
-                        store.dispatch(new fromDataloggers.Add({
-                            dataloggerName: packet.datalogger,
-                            id: packet.dataloggerUUID
-                        }));
-                        store.dispatch(new fromSensors.Add({
-                            sensorName: packet.name,
-                            id: packet.sensorUUID,
-                            // sensorType: packet.type,
-                            // sensorValue: packet.value
-                        }))
-                    }
+         
+                        for (let x = 0; x < data.hits.hits.length-1; x++) {
+                            let packet = data.hits.hits[x]._source;
+                            store.dispatch(new fromSites.Add({
+                                siteName: packet.site,
+                                id: packet.siteUUID
+                            }));
+                            store.dispatch(new fromDataloggers.Add({
+                                dataloggerName: packet.datalogger,
+                                id: packet.dataloggerUUID,
+                                siteId: packet.siteUUID
+                            }));
+                            store.dispatch(new fromSensors.Add({
+                                sensorName: packet.name,
+                                id: packet.sensorUUID,
+                                // sensorType: packet.type,
+                                // sensorValue: packet.value
+                            }))
+                        }
+
                 }
                 
             });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ElasticSearchService } from './services/elasticsearch.service';
+
 import { AppConfig } from './app.config';
 
 @Component({
@@ -10,8 +10,7 @@ import { AppConfig } from './app.config';
 export class AppComponent {
   title = 'ENT';
 
-  constructor(private config: AppConfig, 
-    private esService: ElasticSearchService) {
-    this.esService.getDocuments();
+  constructor(private config: AppConfig) {
+    
   }
 }

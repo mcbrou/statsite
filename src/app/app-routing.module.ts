@@ -8,20 +8,13 @@ import { SiteComponent } from './site';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SensorComponent } from './sensor';
+import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [
     {
-        path: 'sensors',
-        component: SensorComponent
-    },
-    {
-        path: 'datalogger',
-        component: DataloggerComponent
-    },
-    {
         path: '',
         // component: HomePageComponent
-        component: SiteComponent
+        component: HomeComponent
     }
 ];
 

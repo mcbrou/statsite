@@ -18,7 +18,6 @@ export class SensorComponent implements AfterViewChecked {
     @Input() public sensorId: string = ''; 
     
     public sensor$: Observable<Sensor>;
-    public sensors$: Observable<fromSensors.Sensor[]>;
 
     constructor(public store: Store<fromRoot.State>) {
     }
@@ -26,6 +25,5 @@ export class SensorComponent implements AfterViewChecked {
     ngAfterViewChecked() {
         let id = this.sensorId;
         this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
-        this.sensors$ = this.store.pipe(select(fromSensors.getSensors));
         }
 }

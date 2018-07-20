@@ -10,6 +10,7 @@ import { ElasticSearchService } from './services/elasticsearch.service';
 import { AppConfig, APP_CONFIG_VALUES } from './app.config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './core/home/home.component';
 import { SiteComponent } from './site';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { DataloggerComponent } from './datalogger';
@@ -21,13 +22,14 @@ import { SensorComponent } from './sensor';
     SiteComponent,
     DataloggerComponent,
     SensorComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    StoreModule.forRoot(reducers, { metaReducers : metaReducers }),
+    StoreModule.forRoot(reducers),
     // Import routing last for catch all route to work
     AppRoutingModule
   ],

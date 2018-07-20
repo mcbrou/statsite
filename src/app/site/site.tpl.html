@@ -1,17 +1,21 @@
-<h3>Site ID list</h3>
-<ul class="sites">
+<!--<ul class="sites">
     <li *ngFor="let site of sites$ | async">
     <ko-site [siteId]="site.id"></ko-site>
     first
   </li>
-</ul>
+</ul> -->
 
 {{siteId}} words
-<span *ngIf="site$ | async as site">
-    {{site.siteName}} second
-</span>
+<div *ngIf="(site$ | async) as site">
+    {{site.siteName}}
+    <ko-datalogger *ngFor="let datalogger of dataloggers$ | async" 
+     [dataloggerId]="datalogger.id" [siteId]="siteId">
+    </ko-datalogger> 
+</div> 
+<div *ngIf="site != null">
+    {{site.siteName}} #2
+    <ko-datalogger *ngFor="let datalogger of dataloggers$ | async" 
+     [dataloggerId]="datalogger.id" [siteId]="site.siteId">
+    </ko-datalogger> 
+</div>
 
-<ko-datalogger *ngFor="let datalogger of dataloggers$" 
-    [dataloggerId]="datalogger.id">
-    third
-</ko-datalogger>

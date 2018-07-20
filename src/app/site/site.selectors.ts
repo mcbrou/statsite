@@ -1,5 +1,6 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { State, entityAdapter } from './site.state';
+import * as fromRoot from '../reducers';
 import { filter } from 'rxjs/operators';
 
 export const {
@@ -12,6 +13,6 @@ export const {
 export const getSitesState = createFeatureSelector<State>('sites');
 export const getSitesSelector = createSelector(getSitesState, state => state);
 export const getSiteById = siteId => {
-  return createSelector(getSitesState, state => state.entities[siteId]);
+  return createSelector(getSitesSelector, state => state.entities[siteId]);
 };
-export const getSites = createSelector(getSitesState, selectAll);
+export const getSites = createSelector(getSitesSelector, selectAll);

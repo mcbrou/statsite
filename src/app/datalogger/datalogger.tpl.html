@@ -1,14 +1,10 @@
 <h3>whats up its ya boi, datalogger</h3>
 
-<ul class="dataloggers">
-    <li *ngFor="let datalogger of dataloggers$ | async">
-        <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
-        n da for loop
-    </li>
-</ul>
-{{dataloggerId}}
-<br>
+<!-- {{datalogger.dataloggerName}} -->
+
+
 <span *ngIf="datalogger$ | async as datalogger">
-    {{datalogger.dataloggerName}} <br>
-    supposed to be da dataloggerName
+    {{datalogger.dataloggerId}}
+    {{datalogger.dataloggerName}}
 </span>
+
