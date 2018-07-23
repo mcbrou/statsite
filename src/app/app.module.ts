@@ -3,6 +3,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from './material/material.module';
+import { MatMenuModule, 
+  MatButtonModule, 
+  MatInputModule, 
+  MatCardModule } from '@angular/material'
 
 import { reducers, metaReducers } from './reducers';
 import { ElasticSearchService } from './services/elasticsearch.service';
@@ -15,6 +19,7 @@ import { SiteComponent } from './site';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { DataloggerComponent } from './datalogger';
 import { SensorComponent } from './sensor';
+import { MenuComponent } from './core/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { SensorComponent } from './sensor';
     DataloggerComponent,
     SensorComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,11 @@ import { SensorComponent } from './sensor';
     MaterialModule,
     StoreModule.forRoot(reducers),
     // Import routing last for catch all route to work
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    MatButtonModule, 
+    MatInputModule, 
+    MatCardModule
   ],
   providers: [
     // Register AppConfig and its implementation here 

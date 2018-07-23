@@ -1,5 +1,8 @@
-Home
 <div *ngFor="let site of sites">
-        {{site.siteName}}
     <ko-site [siteId]="site.id"></ko-site>
+        <mat-card>
+            <button>
+                <mat-icon>terrain</mat-icon> {{site.siteName}}
+            </button>
+        </mat-card>
 </div>

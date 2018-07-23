@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>
+    ENT <mat-icon>nature_people</mat-icon>
+  </mat-card-title>
+  <mat-card-content>
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+      Menu
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>terrain</mat-icon>
+        <span>Sites</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>satellite</mat-icon>
+        <span>Dataloggers</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>category</mat-icon>
+        <span>Sensors</span>
+      </button>
+    </mat-menu>
+  </mat-card-content>
+</mat-card>

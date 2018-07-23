@@ -75,8 +75,10 @@ export class ElasticSearchService {
                             store.dispatch(new fromSensors.Add({
                                 sensorName: packet.name,
                                 id: packet.sensorUUID,
-                                // sensorType: packet.type,
-                                // sensorValue: packet.value
+                                dataloggerId: packet.dataloggerUUID,
+                                siteId: packet.siteUUID,
+                                sensorType: packet.type,
+                                sensorValue: packet.value
                             }))
                         }
 

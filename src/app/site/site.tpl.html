@@ -1,21 +1,22 @@
-<!--<ul class="sites">
-    <li *ngFor="let site of sites$ | async">
-    <ko-site [siteId]="site.id"></ko-site>
-    first
-  </li>
-</ul> -->
-
-{{siteId}} words
-<div *ngIf="(site$ | async) as site">
-    {{site.siteName}}
+<!-- <div *ngIf="(site$ | async) as site">
+        {{site.siteName}}
     <ko-datalogger *ngFor="let datalogger of dataloggers$ | async" 
-     [dataloggerId]="datalogger.id" [siteId]="siteId">
-    </ko-datalogger> 
-</div> 
-<div *ngIf="site != null">
+        [dataloggerId]="datalogger.id" [siteId]="siteId">
+    </ko-datalogger>
+    {{datalogger.dataloggerName}}
+</div>  -->
+<!-- <div *ngIf="site != null">
     {{site.siteName}} #2
     <ko-datalogger *ngFor="let datalogger of dataloggers$ | async" 
-     [dataloggerId]="datalogger.id" [siteId]="site.siteId">
+        [dataloggerId]="datalogger.id" [siteId]="site.siteId">
     </ko-datalogger> 
-</div>
+</div> -->
 
+<div *ngFor="let datalogger of dataloggers">
+    <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
+        <mat-card>
+            <button>
+                {{datalogger.dataloggerName}}
+            </button>
+        </mat-card>
+</div>

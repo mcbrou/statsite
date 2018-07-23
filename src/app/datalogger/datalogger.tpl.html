@@ -1,10 +1,24 @@
-<h3>whats up its ya boi, datalogger</h3>
+<!-- <h3>whats up its ya boi, datalogger</h3> -->
 
 <!-- {{datalogger.dataloggerName}} -->
 
-
+<!-- 
 <span *ngIf="datalogger$ | async as datalogger">
     {{datalogger.dataloggerId}}
     {{datalogger.dataloggerName}}
-</span>
+</span> -->
+<!-- 
+<div *ngFor="let datalogger of dataloggers">
+    <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
+        {{datalogger.dataloggerName}}
+</div> -->
 
+<div *ngFor="let sensor of sensors">
+        <ko-sensor [sensorId]="sensor.id"></ko-sensor>
+            <mat-card>
+                <button>
+                    {{sensor.sensorName}}
+                </button>
+            </mat-card>
+    </div>
+    
