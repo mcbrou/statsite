@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { State, entityAdapter } from './sensor.state';
+import { SensorsState, entityAdapter } from './sensor.state';
 import { filter } from 'rxjs/operators';
 
 export const {
@@ -9,8 +9,8 @@ export const {
   selectTotal,
 } = entityAdapter.getSelectors();
 
-export const getSensorsState = createFeatureSelector<State>('sensors');
-export const getSensorsSelector = createSelector(getSensorsState, state => state.sensors);
+export const getSensorsState = createFeatureSelector<SensorsState>('sensors');
+export const getSensorsSelector = createSelector(getSensorsState, state => state);
 export const getSensors = createSelector(getSensorsSelector, selectAll);
 export const getSensorById = sensorId => {
   return createSelector(getSensorsSelector, state => state.entities[sensorId]);

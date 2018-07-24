@@ -1,5 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { State, entityAdapter } from './datalogger.state';
+import { DataloggersState, entityAdapter } from './datalogger.state';
 import * as fromSites from '../site';
 import { filter } from 'rxjs/operators';
 import { Datalogger } from './datalogger';
@@ -12,8 +12,8 @@ export const {
   selectTotal,
 } = entityAdapter.getSelectors();
 
-export const getDataloggersState = createFeatureSelector<State>('dataloggers');
-export const getDataloggersSelector = createSelector(getDataloggersState, state => state.dataloggers);
+export const getDataloggersState = createFeatureSelector<DataloggersState>('dataloggers');
+export const getDataloggersSelector = createSelector(getDataloggersState, state => state);
 export const getDataloggers = createSelector(getDataloggersSelector, selectAll);
 
 // export const getDataloggersState = createFeatureSelector<State>('dataloggers');

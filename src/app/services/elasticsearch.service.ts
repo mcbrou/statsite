@@ -53,6 +53,25 @@ export class ElasticSearchService {
 
     public getDocuments(): void{
         let store = this.store;
+
+        this.store.dispatch(new fromSites.Add({
+            siteName: 'testSite',
+            id: 'SITEID'
+        }));
+        this.store.dispatch(new fromDataloggers.Add({
+            dataloggerName: 'testDatalogger',
+            id: 'DLID',
+            siteId: 'SITEID'
+        }));
+        this.store.dispatch(new fromSensors.Add({
+            sensorName: 'sensor',
+            id: 'SENSORID',
+            dataloggerId: 'DLID',
+            siteId: 'SITEID',
+            sensorType: 'temp',
+            sensorValue: '42'
+        }));
+
         this.esClient.search(
             {
             index:  'somesite6',
@@ -85,5 +104,7 @@ export class ElasticSearchService {
                 }
                 
             });
+
+        
     }
 }

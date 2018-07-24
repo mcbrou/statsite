@@ -6,10 +6,6 @@ import * as fromRoot from '../reducers';
 
 export const entityAdapter: EntityAdapter<Datalogger> = createEntityAdapter<Datalogger>();
 
-export const initialState: EntityState<Datalogger> = entityAdapter.getInitialState();
+export const initialState: DataloggersState = entityAdapter.getInitialState();
 
-export interface DataloggerState extends EntityState<Datalogger> {}
-
-export interface State extends fromRoot.State {
-    dataloggers: DataloggerState
-}
+export interface DataloggersState extends EntityState<Datalogger> {}

@@ -9,7 +9,6 @@ import * as fromSensor from '../sensor';
 import * as fromRoot from '../reducers';
 import { ElasticSearchService } from '../services/elasticsearch.service';
 
-import { State } from './datalogger.state';
 import { Datalogger } from './datalogger';
 import { getDataloggerById } from './datalogger.selectors';
 
@@ -26,13 +25,11 @@ export class DataloggerComponent implements OnInit {
     
     //public site$: Observable<fromSites.Site>;
     public datalogger$: Observable<Datalogger>;
-    public sensors: fromSensor.Sensor[];
+    public sensors$: Observable<fromSensor.Sensor[]>;
 
     constructor(public store: Store<fromRoot.State>) {
       let id = this.dataloggerId;
-      this.datalogger$ = this.store.pipe(select(getDataloggerById(this.dataloggerId)));
-      this.store.pipe(select(fromSensor.getSensorsByDataloggerId(this.dataloggerId)))
-      .subscribe(sensors => this.sensors = sensors);
+      
     }
   
     ngOnInit() {
@@ -40,6 +37,8 @@ export class DataloggerComponent implements OnInit {
       //this.site$ = this.store.pipe(select(fromSites.getSiteById(this.siteId)));
       console.log('we n da datalogger component');
       console.log(this.dataloggerId);
+      this.datalogger$ = this.store.pipe(select(getDataloggerById(this.dataloggerId)));
+      this.sensors$ = this.store.pipe(select(fromSensor.getSensorsByDataloggerId(this.dataloggerId)));
     }
   
   }

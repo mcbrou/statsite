@@ -24,19 +24,18 @@ export class SiteComponent implements OnInit {
     
     public site$: Observable<Site>;
     //public dataloggers$: Observable<fromDatalogger.Datalogger[]>;
-    public dataloggers: fromDatalogger.Datalogger[];
-    public site: Site;
+    public dataloggers$: Observable<fromDatalogger.Datalogger[]>;
 
     constructor(public store: Store<fromRoot.State>) {
  
         this.site$ = this.store.pipe(select(getSiteById(this.siteId)));
         //this.sites$ = this.store.pipe(select(fromSites.getSites));
-        this.store.pipe(select(getSites)).subscribe(function(sites) { 
+        /*this.store.pipe(select(getSites)).subscribe(function(sites) { 
             for(let site of sites) { 
                 if(site.id == this.siteId) this.site = site; 
             } 
-        });
-        this.store.pipe(select(fromDatalogger.getDataloggers)).subscribe(dataloggers => this.dataloggers = dataloggers);
+        });*/
+        //this.store.pipe(select(fromDatalogger.getDataloggers)).subscribe(dataloggers => this.dataloggers = dataloggers);
         //this.dataloggers$ = this.store.pipe(select(fromDatalogger.getDataloggersBySiteId(this.siteId)));
 
     }
@@ -46,6 +45,7 @@ export class SiteComponent implements OnInit {
         console.log(this.siteId);
        // this.dataloggers$ = this.store.pipe(select(fromDatalogger.getDataloggersBySiteId(this.siteId)));
         this.site$ = this.store.pipe(select(getSiteById(this.siteId)));
+        this.dataloggers$ = this.store.pipe(select(fromDatalogger.getDataloggersBySiteId(this.siteId)));
     }
 }
   

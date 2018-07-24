@@ -1,9 +1,9 @@
 import { EntityState } from '@ngrx/entity';
 import { Sensor } from './sensor';
 import { SensorActionType, SensorAction } from './sensor.actions';
-import { initialState, entityAdapter } from './sensor.state';
+import { initialState, entityAdapter, SensorsState } from './sensor.state';
 
-export function reducer(state = initialState, action: SensorAction ) : EntityState<Sensor> {
+export function reducer(state = initialState, action: SensorAction ) : SensorsState {
     switch (action.type) {
         case SensorActionType.Add: {
             console.log('SENSOR payload');

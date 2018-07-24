@@ -12,15 +12,15 @@ import * as fromDatalogger from '../datalogger';
 import * as fromSensors from '../sensor';
 
 export interface State { 
-    sites: fromSite.SitesState,
-    dataloggers: fromDatalogger.DataloggerState,
-    sensors: fromSensors.SensorState
+    //sites: fromSite.SitesState,
+    //dataloggers: fromDatalogger.DataloggerState,
+    //sensors: fromSensors.SensorState
  }
 
 export const reducers: ActionReducerMap<State> = { 
-    sites: fromSite.reducer,
-    dataloggers: fromDatalogger.reducer,
-    sensors: fromSensors.reducer
+    //sites: fromSite.reducer,
+    //dataloggers: fromDatalogger.reducer,
+    //sensors: fromSensors.reducer
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [ storeFreeze ] : []; 

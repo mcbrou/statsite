@@ -6,13 +6,12 @@ import * as fromSite from '../../site';
 import * as fromRoot from '../../reducers';
 
 @Component({
-    selector: 'ko-component',
+    selector: 'ko-home',
     templateUrl: './home.tpl.html',
     styleUrls: ['./home.scss']
 })
 export class HomeComponent implements OnInit {
-    public sites$: Observable<fromSite.Site[]>;
-
+    
     public sites: fromSite.Site[];
 
     constructor(private store: Store<fromRoot.State>, 

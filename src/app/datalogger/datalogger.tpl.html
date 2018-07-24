@@ -13,9 +13,10 @@
         {{datalogger.dataloggerName}}
 </div> -->
 <div *ngIf="datalogger$ | async as datalogger">
-    {{datalogger.dataloggerName}} hello
+    {{datalogger.dataloggerName}}
 </div>
-
-<ko-sensor [sensorId]="sensor.id" *ngFor="let sensor of sensors" ></ko-sensor>
+<div  *ngFor="let sensor of sensors$ | async">
+    <ko-sensor [sensorId]="sensor.id" ></ko-sensor>
+</div>
 
 

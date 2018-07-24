@@ -4,12 +4,7 @@
         [dataloggerId]="datalogger.id" [siteId]="siteId">
     </ko-datalogger>
 </div>  -->
-
- <div *ngFor="let datalogger of dataloggers">
+<span *ngIf="site$ | async as site">{{site.siteName}}</span>
+ <div *ngFor="let datalogger of dataloggers$ | async">
     <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
-        <mat-card>
-            <button mat-raised-button color="warn">
-                <mat-icon>satellite</mat-icon> {{datalogger.dataloggerName}}
-            </button>
-        </mat-card>
 </div> 
