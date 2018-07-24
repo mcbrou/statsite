@@ -6,9 +6,9 @@ import { initialState, entityAdapter } from './sensor.state';
 export function reducer(state = initialState, action: SensorAction ) : EntityState<Sensor> {
     switch (action.type) {
         case SensorActionType.Add: {
-            console.log('payload');
+            console.log('SENSOR payload');
             console.log(action.payload);
-            return entityAdapter.addOne(action.payload, state);
+            return entityAdapter.upsertOne(action.payload, state);
         };
         default: {
             return state;

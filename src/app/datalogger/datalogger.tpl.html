@@ -12,13 +12,10 @@
     <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
         {{datalogger.dataloggerName}}
 </div> -->
+<div *ngIf="datalogger$ | async as datalogger">
+    {{datalogger.dataloggerName}} hello
+</div>
 
-<div *ngFor="let sensor of sensors">
-        <ko-sensor [sensorId]="sensor.id"></ko-sensor>
-            <mat-card>
-                <button>
-                    {{sensor.sensorName}}
-                </button>
-            </mat-card>
-    </div>
-    
+<ko-sensor [sensorId]="sensor.id" *ngFor="let sensor of sensors" ></ko-sensor>
+
+

@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, Input, OnInit, AfterViewChecked } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { State } from './sensor.state';
 import { getSensorById, getSensors } from './sensor.selectors';
@@ -14,16 +14,20 @@ import * as fromRoot from '../reducers';
     styleUrls: ['./sensor.scss'],
     templateUrl: './sensor.tpl.html'
 })
-export class SensorComponent implements AfterViewChecked {
-    @Input() public sensorId: string = ''; 
+export class SensorComponent implements OnInit {
+    @Input() public sensorId: string; 
     
     public sensor$: Observable<Sensor>;
 
     constructor(public store: Store<fromRoot.State>) {
+        console.log('sensorcomponent');
+        this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
     }
 
-    ngAfterViewChecked() {
+    ngOnInit() {
         let id = this.sensorId;
-        this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
+        
+        // this.store.pipe(select(fromSensors.getSensors)).subscribe(sensors => this.sensors = sensors);
+
         }
 }

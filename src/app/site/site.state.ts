@@ -7,4 +7,8 @@ export const entityAdapter: EntityAdapter<Site> = createEntityAdapter<Site>();
 
 export const initialState: EntityState<Site> = entityAdapter.getInitialState();
 
-export interface State extends EntityState<Site> {}
+export interface SitesState extends EntityState<Site> {}
+
+export interface State extends fromRoot.State {
+    sites: SitesState
+}

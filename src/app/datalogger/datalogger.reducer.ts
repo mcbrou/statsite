@@ -8,7 +8,7 @@ export function reducer(state = initialState, action: DataloggerAction ) : Entit
         case DataloggerActionType.Add: {
             console.log('datalogger payload');
             console.log(action.payload);
-            return entityAdapter.addOne(action.payload, state);
+            return entityAdapter.upsertOne(action.payload, state);
         };
         default: {
             return state;

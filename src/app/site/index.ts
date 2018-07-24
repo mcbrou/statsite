@@ -4,3 +4,5 @@ export * from './site.reducer';
 export * from './site.actions';
 export * from './site.selectors';
 export * from './site.component';
+
+export * from './site.module';

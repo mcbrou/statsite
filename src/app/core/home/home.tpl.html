@@ -1,8 +1,16 @@
 <div *ngFor="let site of sites">
     <ko-site [siteId]="site.id"></ko-site>
         <mat-card>
-            <button>
-                <mat-icon>terrain</mat-icon> {{site.siteName}}
-            </button>
+            <div *ngIf="site.id == 'b1072eb6'; then good else bad"></div>
+            <ng-template #good>
+                <button mat-raised-button color="basic">
+                    <mat-icon>terrain</mat-icon> {{site.siteName}}
+                </button>
+            </ng-template>
+            <ng-template #bad>
+                <button mat-raised-button color="warn">
+                    <mat-icon>terrain</mat-icon> {{site.siteName}}
+                </button>
+            </ng-template>
         </mat-card>
 </div>

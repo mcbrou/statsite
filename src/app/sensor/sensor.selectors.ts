@@ -10,8 +10,16 @@ export const {
 } = entityAdapter.getSelectors();
 
 export const getSensorsState = createFeatureSelector<State>('sensors');
-export const getSensorsSelector = createSelector(getSensorsState, state => state);
+export const getSensorsSelector = createSelector(getSensorsState, state => state.sensors);
+export const getSensors = createSelector(getSensorsSelector, selectAll);
 export const getSensorById = sensorId => {
-  return createSelector(getSensorsState, state => state.entities[sensorId]);
+  return createSelector(getSensorsSelector, state => state.entities[sensorId]);
 };
-export const getSensors = createSelector(getSensorsState, selectAll);
+export const getSensorsByDataloggerId = dataloggerId => {
+    return createSelector(getSensors, function(state) {
+      return state.filter(function(sensor){
+        return sensor.dataloggerId == dataloggerId;
+      });
+    });
+  };
+

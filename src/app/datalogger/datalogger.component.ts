@@ -5,14 +5,13 @@ import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 
 import * as fromSites from '../site';
-import * as fromDataloggers from '../datalogger';
 import * as fromSensor from '../sensor';
 import * as fromRoot from '../reducers';
 import { ElasticSearchService } from '../services/elasticsearch.service';
 
 import { State } from './datalogger.state';
 import { Datalogger } from './datalogger';
-import { getDataloggerById } from '../datalogger';
+import { getDataloggerById } from './datalogger.selectors';
 
 @Component({
     selector: 'ko-datalogger',
@@ -27,19 +26,18 @@ export class DataloggerComponent implements OnInit {
     
     //public site$: Observable<fromSites.Site>;
     public datalogger$: Observable<Datalogger>;
-    public sensors$: Observable<fromSensor.Sensor[]>;
     public sensors: fromSensor.Sensor[];
 
     constructor(public store: Store<fromRoot.State>) {
       let id = this.dataloggerId;
       this.datalogger$ = this.store.pipe(select(getDataloggerById(this.dataloggerId)));
-
+      this.store.pipe(select(fromSensor.getSensorsByDataloggerId(this.dataloggerId)))
+      .subscribe(sensors => this.sensors = sensors);
     }
   
     ngOnInit() {
             // let this.siteId = 
       //this.site$ = this.store.pipe(select(fromSites.getSiteById(this.siteId)));
-      this.store.pipe(select(fromSensor.getSensors)).subscribe(sensors => this.sensors = sensors);
       console.log('we n da datalogger component');
       console.log(this.dataloggerId);
     }
