@@ -13,15 +13,14 @@ export const {
 } = entityAdapter.getSelectors();
 
 export const getDataloggersState = createFeatureSelector<DataloggersState>('dataloggers');
-export const getDataloggersSelector = createSelector(getDataloggersState, state => state);
-export const getDataloggers = createSelector(getDataloggersSelector, selectAll);
+export const getDataloggers = createSelector(getDataloggersState, selectAll);
 
 // export const getDataloggersState = createFeatureSelector<State>('dataloggers');
 // export const getDataloggersSelector = createSelector(getDataloggersState, state => state);
 
 
 export const getDataloggerById = dataloggerId => {
-  return createSelector(getDataloggersSelector, state => state.entities[dataloggerId]);
+  return createSelector(getDataloggersState, state => state.entities[dataloggerId]);
 }
 
 // export const getDataloggers = createSelector(getDataloggerState, selectAll);

@@ -11,8 +11,7 @@ export const {
 } = entityAdapter.getSelectors();
 
 export const getSitesState = createFeatureSelector<SitesState>('sites');
-export const getSitesSelector = createSelector(getSitesState, state => state);
 export const getSiteById = siteId => {
-  return createSelector(getSitesSelector, state => state.entities[siteId]);
+  return createSelector(getSitesState, state => state.entities[siteId]);
 };
-export const getSites = createSelector(getSitesSelector, selectAll);
+export const getSites = createSelector(getSitesState, selectAll);
