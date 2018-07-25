@@ -6,8 +6,8 @@ import { initialState, entityAdapter, DataloggersState } from './datalogger.stat
 export function reducer(state = initialState, action: DataloggerAction ) : DataloggersState {
     switch (action.type) {
         case DataloggerActionType.Add: {
-            console.log('datalogger payload');
-            console.log(action.payload);
+            // console.log('datalogger payload');
+            // console.log(action.payload);
             return entityAdapter.upsertOne(action.payload, state);
         };
         default: {

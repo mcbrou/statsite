@@ -1,7 +1,7 @@
 Sites:
 <div *ngFor="let site of sites">
     <ko-site [siteId]="site.id"></ko-site>
-    <mat-card>
+    <!-- <mat-card>
         <div *ngIf="site.id == 'SITEID'; then good else bad"></div>
         <ng-template #good>
             <button mat-raised-button color="basic">
@@ -13,5 +13,5 @@ Sites:
                 <mat-icon>terrain</mat-icon> {{site.siteName}}
             </button>
         </ng-template>
-    </mat-card>
+    </mat-card> -->
 </div>

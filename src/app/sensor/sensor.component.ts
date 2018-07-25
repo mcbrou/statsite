@@ -19,13 +19,10 @@ export class SensorComponent implements OnInit {
     public sensor$: Observable<Sensor>;
 
     constructor(public store: Store<fromRoot.State>) {
-        console.log('sensorcomponent');
     }
 
     ngOnInit() {
         let id = this.sensorId;
-        
         this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
-
     }
 }

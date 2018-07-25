@@ -1,17 +1,3 @@
-<!-- <h3>whats up its ya boi, datalogger</h3> -->
-
-<!-- {{datalogger.dataloggerName}} -->
-
-<!-- 
-<span *ngIf="datalogger$ | async as datalogger">
-    {{datalogger.dataloggerId}}
-    {{datalogger.dataloggerName}}
-</span> -->
-<!-- 
-<div *ngFor="let datalogger of dataloggers">
-    <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
-        {{datalogger.dataloggerName}}
-</div> -->
 <div *ngIf="datalogger$ | async as datalogger">
     {{datalogger.dataloggerName}}
 </div>

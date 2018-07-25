@@ -22,8 +22,6 @@ export class DataloggerComponent implements OnInit {
     @Input() public dataloggerId: string = ''; 
     @Input() public siteId: string = '';
 
-    
-    //public site$: Observable<fromSites.Site>;
     public datalogger$: Observable<Datalogger>;
     public sensors$: Observable<fromSensor.Sensor[]>;
 
@@ -33,8 +31,6 @@ export class DataloggerComponent implements OnInit {
     }
   
     ngOnInit() {
-            // let this.siteId = 
-      //this.site$ = this.store.pipe(select(fromSites.getSiteById(this.siteId)));
       console.log('we n da datalogger component');
       console.log(this.dataloggerId);
       this.datalogger$ = this.store.pipe(select(getDataloggerById(this.dataloggerId)));

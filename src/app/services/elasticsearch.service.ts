@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
-// import { SITES } from '../mock-sites';
 import * as fromSites from '../site';
 import * as fromDataloggers from '../datalogger';
 import * as fromSensors from '../sensor';
@@ -38,13 +37,7 @@ export class ElasticSearchService {
         this.esClient.count({
             index: 'somesite6'
         }, function(err, data) { 
-            console.log(data); 
-            // Split out sites
-            // Dispatch add_site with extracted site
-            // Split out dataloggers
-            // --
-            // Split out sensors
-            // --
+            // console.log(data);
         });
 
 
@@ -82,11 +75,7 @@ export class ElasticSearchService {
                                 sensorValue: packet.value
                             }))
                         }
-
-                }
-                
+                }  
             });
-
-        
     }
 }

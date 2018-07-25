@@ -1,9 +1,3 @@
-<!--<div *ngIf="(site$ | async) as site">
-        {{site.siteName}}
-    <ko-datalogger *ngFor="let datalogger of dataloggers$ | async" 
-        [dataloggerId]="datalogger.id" [siteId]="siteId">
-    </ko-datalogger>
-</div>  -->
 <span *ngIf="site$ | async as site">{{site.siteName}}</span>
  <div *ngFor="let datalogger of dataloggers$ | async">
     <ko-datalogger [dataloggerId]="datalogger.id"></ko-datalogger>
