@@ -8,8 +8,11 @@ export function reducer(state = initialState, action: DataloggerAction ) : Datal
         case DataloggerActionType.Add: {
             // console.log('datalogger payload');
             // console.log(action.payload);
-            return entityAdapter.upsertOne(action.payload, state);
+            return entityAdapter.upsertOne(Object.assign({}, {expandState: (state.entities[action.payload.id] && state.entities[action.payload.id].expandState) ? state.entities[action.payload.id].expandState : 'normal'} ,action.payload), state);
         };
+        case DataloggerActionType.Modify: {
+            return entityAdapter.updateOne(action.payload, state);
+        }
         default: {
             return state;
         }

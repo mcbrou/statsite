@@ -22,6 +22,8 @@ export class SensorComponent implements OnInit {
     }
 
     ngOnInit() {
+        // console.log('sensor');
+        // console.log(this.sensorId);
         let id = this.sensorId;
         this.sensor$ = this.store.pipe(select(getSensorById(this.sensorId)));
     }

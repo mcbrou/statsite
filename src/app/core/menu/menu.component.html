@@ -7,18 +7,15 @@
       Menu
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item routerLink="/">
         <mat-icon>terrain</mat-icon>
-        <span>Sites</span>
+        <span>Home</span>
       </button>
-      <button mat-menu-item>
-        <mat-icon>satellite</mat-icon>
-        <span>Dataloggers</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>category</mat-icon>
-        <span>Sensors</span>
-      </button>
+      <div *ngFor="let site of sites$ | async">
+        <button mat-menu-item (click)="router.navigate([site.id], {relativeTo: route})">
+          <span>{{site.siteName}}</span>
+        </button>
+      </div>
     </mat-menu>
   </mat-card-content>
 </mat-card>

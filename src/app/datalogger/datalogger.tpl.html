@@ -1,8 +1,22 @@
-<div *ngIf="datalogger$ | async as datalogger">
+<div *ngIf="datalogger$ | async as datalogger" class="dl-container"
+    [@expandState]="expanded"
+    (click)="expandToggle()">
+        
+    <span>{{datalogger.dataloggerName}}</span>
+    <div *ngIf="expanded == 'expanded'">
+    <div  *ngFor="let sensor of sensors$ | async">
+        <ko-sensor [sensorId]="sensor.id" ></ko-sensor>
+    </div>
+    </div>
+</div>
+
+
+<!-- -->
+
+<!-- <div *ngIf="datalogger$ | async as datalogger">
     {{datalogger.dataloggerName}}
 </div>
-<div  *ngFor="let sensor of sensors$ | async">
-    <ko-sensor [sensorId]="sensor.id" ></ko-sensor>
-</div>
-
-
+    <p>
+        <div  *ngFor="let sensor of sensors$ | async">
+            <ko-sensor [sensorId]="sensor.id" ></ko-sensor>
+        </div>      -->

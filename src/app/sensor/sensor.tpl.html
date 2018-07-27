@@ -1,3 +1,4 @@
 <div *ngIf="sensor$ | async as sensor">
-        {{sensor.sensorName}}
+        {{sensor.sensorName}}: {{sensor.sensorValue}} {{sensor.sensorUnit}}
+        <!-- {{sensor.timestamp}} -->
 </div>

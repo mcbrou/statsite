@@ -5,4 +5,5 @@ export interface Sensor {
     siteId: string;
     sensorType: string;
     sensorValue: string;
+    sensorUnit: string;
 }
